@@ -1,5 +1,4 @@
-import { ethers } from 'ethers';
-import logo from '../assets/logo.svg';
+import { ethers } from 'ethers'
 
 const Navigation = ({ account, setAccount }) => {
     const connectHandler = async () => {
@@ -11,7 +10,6 @@ const Navigation = ({ account, setAccount }) => {
     return (
         <nav>
             <div className='nav__brand'>
-                {/* <img src={logo} alt="Logo" /> */}
                 <h1>Dappazon</h1>
             </div>
 

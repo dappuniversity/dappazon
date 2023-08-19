@@ -29,3 +29,18 @@ In a separate terminal execute:
 
 ### 6. Start frontend
 `$ npm run start`
+
+### 7. Conecte sua Metamask na sua rede local
+
+Conecte-se à Rede Local:
+
+No canto superior direito da MetaMask, clique no menu suspenso que mostra a rede atual (por exemplo, "Main Ethereum Network").
+
+Selecione "Custom RPC" ou "Rede Local" (dependendo da sua versão da MetaMask).
+
+Insira as seguintes informações:
+* Network Name: Hardhat (ou qualquer nome que você preferir)
+* New RPC URL: http://127.0.0.1:8545 (este é o padrão para o Hardhat node)
+* Chain ID: 31337 (este é o padrão para o Hardhat node)
+
+Clique em "Save" ou "Salvar".

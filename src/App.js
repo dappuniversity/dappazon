@@ -31,6 +31,7 @@ function App() {
   }
 
   const loadBlockchainData = async () => {
+
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
     const network = await provider.getNetwork()

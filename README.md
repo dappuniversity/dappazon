@@ -44,3 +44,7 @@ Insira as seguintes informações:
 * Chain ID: 31337 (este é o padrão para o Hardhat node)
 
 Clique em "Save" ou "Salvar".
+
+## 8
+
+npx hardhat console --network localhost

@@ -14,8 +14,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "npx hardhat test --network hardhat",
+    "eject": "react-scripts eject",
+    "deploy": "npx hardhat run ./scripts/deploy.js --network goerli"
   },
   "eslintConfig": {
     "extends": [

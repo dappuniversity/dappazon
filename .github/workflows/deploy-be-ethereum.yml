@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Compile and Test Contracts
-      run: npx hardhat test
+      run: npm run test
 
     - name: Deploy Contract to Goerli
       run: npx hardhat run ./scripts/deploy.js --network goerli

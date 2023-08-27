@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract Dappazon {
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+
+
+contract Dappazon is Initializable {
     address public owner;
 
     struct Item {
@@ -30,8 +33,8 @@ contract Dappazon {
         require(msg.sender == owner);
         _;
     }
-
-    constructor() {
+    
+    function initialize() public initializer {
         owner = msg.sender;
     }
 

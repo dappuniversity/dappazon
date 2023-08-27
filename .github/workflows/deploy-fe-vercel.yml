@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main  # ou o nome da sua branch principal
+      - master  # ou o nome da sua branch principal
 
 jobs:
   deploy:

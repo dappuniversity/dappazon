@@ -25,7 +25,7 @@ jobs:
       run: npm run test
 
     - name: Deploy Contract to Goerli
-      run: npx hardhat run ./scripts/deploy.js --network goerli
+      run: npx hardhat run ./scripts/deploy.js --network goerli --config hardhat.goerli.config.js
       env:
         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}

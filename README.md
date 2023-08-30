@@ -15,10 +15,11 @@
 ### 1. Clone/Download the Repository
 
 ### 2. Install Dependencies:
-`$ npm install`
+`$ yarn install`
+
 
 ### 3. Run tests
-`$ npx hardhat test`
+`$ yarn test`
 
 ### 4. Start Hardhat node
 `$ npx hardhat node`

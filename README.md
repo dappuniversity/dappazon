@@ -12,6 +12,7 @@
 - Install [NodeJS](https://nodejs.org/en/)
 
 ## Setting Up
+
 ### 1. Clone/Download the Repository
 
 ### 2. Install Dependencies:
@@ -49,3 +50,42 @@ Clique em "Save" ou "Salvar".
 ## 8
 
 npx hardhat console --network localhost
+
+## Jornadas de usuário
+
+Jornada inicial, usuário não cadastrado
+
+* 
+
+```mermaid
+graph TD
+    A[Home] --> B[Escolher o produto]
+    B --> C[Cadastro de usuário]
+    C1[Metamask]
+    C2[E-mail]
+    C3[Rede Social]
+    C --> C1
+    C --> C2
+    C --> C3
+    C --> D[Cadastro de meio de pagamento]
+    D1[Pix]
+    D2[Cartão]
+    D3[Bitcoin]
+    D4[Cash Back]
+    D5[Boleto]
+    D --> D1
+    D --> D2
+    D --> D3
+    D --> D4
+    D --> D5
+    D --> E[Cadastro endereço entrega]
+    E --> F[Revisar carrinho]
+    F1[Pagamento]
+    F2[Endereço de entrega]
+    F3[Meio de pagamento]
+    F --> F1
+    F --> F2
+    F --> F3
+    F --> G[Sucesso pagamento aprovado]
+    F --> H[Erro no pagamento]
+```

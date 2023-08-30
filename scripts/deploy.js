@@ -6,7 +6,6 @@
 // global scope, and execute the script.
 const hre = require("hardhat")
 const { items } = require("../src/items.json")
-const { deployProxy } = require('@openzeppelin/hardhat-upgrades')
 
 const tokens = (n) => {
   return ethers.utils.parseUnits(n.toString(), 'ether')
@@ -18,7 +17,7 @@ async function main() {
 
   // Deploy Dappazon
   const Dappazon = await hre.ethers.getContractFactory("Dappazon")
-  const dappazon = await deployProxy(Dappazon, []);
+  const dappazon = await Dappazon.deploy()
   await dappazon.deployed()
 
   console.log(`Deployed Dappazon Contract at: ${dappazon.address}\n`)

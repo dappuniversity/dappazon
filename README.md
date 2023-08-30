@@ -1,3 +1,5 @@
+Here's the translated README:
+
 # Dappazon
 
 ## Technology Stack & Tools
@@ -18,7 +20,6 @@
 ### 2. Install Dependencies:
 `$ yarn install`
 
-
 ### 3. Run tests
 `$ yarn test`
 
@@ -32,60 +33,106 @@ In a separate terminal execute:
 ### 6. Start frontend
 `$ npm run start`
 
-### 7. Conecte sua Metamask na sua rede local
+### 7. Connect your Metamask to your local network
 
-Conecte-se à Rede Local:
+Connect to the Local Network:
 
-No canto superior direito da MetaMask, clique no menu suspenso que mostra a rede atual (por exemplo, "Main Ethereum Network").
+In the top right corner of MetaMask, click on the dropdown menu showing the current network (for example, "Main Ethereum Network").
 
-Selecione "Custom RPC" ou "Rede Local" (dependendo da sua versão da MetaMask).
+Select "Custom RPC" or "Local Network" (depending on your version of MetaMask).
 
-Insira as seguintes informações:
-* Network Name: Hardhat (ou qualquer nome que você preferir)
-* New RPC URL: http://127.0.0.1:8545 (este é o padrão para o Hardhat node)
-* Chain ID: 31337 (este é o padrão para o Hardhat node)
+Enter the following details:
+* Network Name: Hardhat (or any name you prefer)
+* New RPC URL: http://127.0.0.1:8545 (this is the default for the Hardhat node)
+* Chain ID: 31337 (this is the default for the Hardhat node)
 
-Clique em "Save" ou "Salvar".
+Click on "Save".
 
-## 8
+## How to access your local node
 
 npx hardhat console --network localhost
 
-## Jornadas de usuário
+## How to configure your deployment secrets
 
-Jornada inicial, usuário não cadastrado
+To deploy and interact with blockchain networks, certain secrets and keys are required. Here are steps on how to obtain and configure them:
+
+### 1. **INFURA_API_KEY**: 
+   - **How to obtain**:
+     1. Go to [Infura](https://www.infura.io/).
+     2. Sign up for an account if you don't already have one.
+     3. Once logged in, create a new project.
+     4. Within the project settings, you will see your API keys.
+   - **How to configure**:
+     - Store this key in a `.env` file in the root directory of your project as:
+       ```
+       INFURA_API_KEY=your_infura_api_key
+       ```
+
+### 2. **PRIVATE_KEY**: 
+   - **How to obtain**:
+     1. Open your Metamask extension.
+     2. Click on the account icon (usually at the top right).
+     3. Click on "Account Details".
+     4. Under the "Private Key" section, click "Export Private Key".
+     5. Enter your Metamask password and then you will be shown your private key. **(Caution: Never share this key!)**.
+   - **How to configure**:
+     - Store this key in your `.env` file:
+       ```
+       PRIVATE_KEY=your_metamask_private_key
+       ```
+
+### 3. **VERCEL_TOKEN**: 
+   - **How to obtain**:
+     1. Visit [Vercel](https://vercel.com/).
+     2. Sign in or create an account.
+     3. Go to your settings or dashboard.
+     4. Navigate to the "Tokens" section.
+     5. Generate a new token.
+   - **How to configure**:
+     - Store the token in your `.env` file:
+       ```
+       VERCEL_TOKEN=your_vercel_token
+       ```
+
+### Security Note:
+Always make sure to add `.env` to your `.gitignore` file to ensure that it isn't accidentally committed to a public repository, as it contains sensitive information.
+
+
+## User Journeys
+
+Initial journey, unregistered user:
 
 * 
 
 ```mermaid
 graph TD
-    A[Home] --> B[Escolher o produto]
-    B --> C[Cadastro de usuário]
+    A[Home] --> B[Choose product]
+    B --> C[User registration]
     C1[Metamask]
     C2[E-mail]
-    C3[Rede Social]
+    C3[Social Network]
     C --> C1
     C --> C2
     C --> C3
-    C --> D[Cadastro de meio de pagamento]
+    C --> D[Payment method registration]
     D1[Pix]
-    D2[Cartão]
+    D2[Card]
     D3[Bitcoin]
     D4[Cash Back]
-    D5[Boleto]
+    D5[Invoice]
     D --> D1
     D --> D2
     D --> D3
     D --> D4
     D --> D5
-    D --> E[Cadastro endereço entrega]
-    E --> F[Revisar carrinho]
-    F1[Pagamento]
-    F2[Endereço de entrega]
-    F3[Meio de pagamento]
+    D --> E[Delivery address registration]
+    E --> F[Review cart]
+    F1[Payment]
+    F2[Delivery address]
+    F3[Payment method]
     F --> F1
     F --> F2
     F --> F3
-    F --> G[Sucesso pagamento aprovado]
-    F --> H[Erro no pagamento]
+    F --> G[Success payment approved]
+    F --> H[Payment error]
 ```

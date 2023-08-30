@@ -63,6 +63,10 @@ contract Dappazon {
         emit List(_name, _cost, _stock);
     }
 
+    function test(uint256 _id) public payable {
+
+    }
+
     function buy(uint256 _id) public payable {
         // Fetch item
         Item memory item = items[_id];

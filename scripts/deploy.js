@@ -19,9 +19,6 @@ async function main() {
   // Deploy Dappazon
   const Dappazon = await hre.ethers.getContractFactory("Dappazon")
   const dappazon = await deployProxy(Dappazon, [], { initializer: 'initialize' });
-  await dappazon.deployed()
-
-  
 
   console.log(`Deployed Dappazon Contract at: ${dappazon.address}\n`)
 

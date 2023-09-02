@@ -2,7 +2,9 @@ Here's the translated README:
 
 # Dappazon
 
+Endereços do nosso contrato:
 
+Goerli Test : 0x62Ff16877fc496CB44c7feBF4b1C16b13D91370E
 
 **Dappazon: A Revolução do E-commerce Personalizado**
 
@@ -78,7 +80,7 @@ npx hardhat console --network localhost
 
 To deploy and interact with blockchain networks, certain secrets and keys are required. Here are steps on how to obtain and configure them:
 
-### 1. **INFURA_API_KEY**: 
+### 1. **INFURA_API_KEY**:
    - **How to obtain**:
      1. Go to [Infura](https://www.infura.io/).
      2. Sign up for an account if you don't already have one.
@@ -90,7 +92,7 @@ To deploy and interact with blockchain networks, certain secrets and keys are re
        INFURA_API_KEY=your_infura_api_key
        ```
 
-### 2. **PRIVATE_KEY**: 
+### 2. **PRIVATE_KEY**:
    - **How to obtain**:
      1. Open your Metamask extension.
      2. Click on the account icon (usually at the top right).
@@ -103,7 +105,7 @@ To deploy and interact with blockchain networks, certain secrets and keys are re
        PRIVATE_KEY=your_metamask_private_key
        ```
 
-### 3. **VERCEL_TOKEN**: 
+### 3. **VERCEL_TOKEN**:
    - **How to obtain**:
      1. Visit [Vercel](https://vercel.com/).
      2. Sign in or create an account.
@@ -124,7 +126,7 @@ Always make sure to add `.env` to your `.gitignore` file to ensure that it isn't
 
 Initial journey, unregistered user:
 
-* 
+*
 
 ```mermaid
 graph TD
@@ -166,7 +168,7 @@ Esse projeto é uma potente plataforma de ecommerce e facilitação do comercio 
 Aqui proteção e sigilo de dados é lei (lei de proteção aos dados).
 
 + (base) - White Label (Esse módulo é a base do sistema, pois aqui iremos cadastrar as lojas parceiras)
-    
+
     * Cadastro de Loja
         * Criação Vitrines / Categorias
         * Gestão de conteudo
@@ -181,10 +183,10 @@ Aqui proteção e sigilo de dados é lei (lei de proteção aos dados).
 
 + (base) - Usuários
 
-    * Tipo de usuário (Client, Lojista (Seller), Back_Office, Owner) 
+    * Tipo de usuário (Client, Lojista (Seller), Back_Office, Owner)
       > Focado na Lei de proteção de dados os acessos aos dados dessa plataforma seguem a seguinte diretriz
-      
-      Tabela entidade vs read_write | role 
+
+      Tabela entidade vs read_write | role
 
       * private Client (Owner read_write, Seller read, Back_Office read)
       * public Seller (Owner read_write, Client read, Back_Office read)
@@ -206,21 +208,21 @@ Aqui proteção e sigilo de dados é lei (lei de proteção aos dados).
 
     * NFT - Acess
     * Larning Plataform
-    * 
+    *
 
 + (plugin) - Marketing Place Events
 
     * Tkt NFT Manager
-    * Events manager 
+    * Events manager
     * Tkt Check (app mobile, dapp)
 
 + (plugin) - Marketing Place Gift Card
 
     * Coin Manager
 
-# Designer : Style site Layout 
+# Designer : Style site Layout
 
-[_] - Tipo cores (verde e amarelo, roxo e verde) 
+[_] - Tipo cores (verde e amarelo, roxo e verde)
 [_] - Tema (tec, oriental, business)
 [_] - Logo (simbol, by artist Pablo Picasso, style Psicodelicy)
 [_] - Site Layout (ex: Menu, Bunner, Product List (10 itens page), Footer)

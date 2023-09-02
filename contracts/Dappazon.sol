@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+
 //TODO : Implementacao de proxy para nao ficar mudando toda hora o id do contrato
-contract Dappazon {
+contract Dappazon is Initializable {
     //
     address public owner;
 
@@ -29,11 +31,11 @@ contract Dappazon {
     event List(string name, uint256 cost, uint256 quantity);
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Caller is not the owner");
         _;
     }
 
-    constructor() {
+    function initialize() public initializer {
         owner = msg.sender;
     }
 

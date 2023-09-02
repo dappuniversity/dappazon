@@ -4,6 +4,7 @@
 // You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
+const { deployProxy } = require('@openzeppelin/hardhat-upgrades');
 const hre = require("hardhat")
 const { items } = require("../src/items.json")
 
@@ -17,8 +18,10 @@ async function main() {
 
   // Deploy Dappazon
   const Dappazon = await hre.ethers.getContractFactory("Dappazon")
-  const dappazon = await Dappazon.deploy()
+  const dappazon = await deployProxy(Dappazon, [], { initializer: 'initialize' });
   await dappazon.deployed()
+
+  
 
   console.log(`Deployed Dappazon Contract at: ${dappazon.address}\n`)
 

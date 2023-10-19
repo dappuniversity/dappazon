@@ -24,9 +24,6 @@ describe("Dappazon", () => {
     // Deploy contract
     const Dappazon = await ethers.getContractFactory("Dappazon")
     dappazon = await Dappazon.deploy()
-
-    // Initialize contract
-    await dappazon.initialize()
   })
 
   describe("Deployment", () => {

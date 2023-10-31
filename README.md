@@ -72,7 +72,220 @@ Click on "Save".
 
 ## How to access your local node
 
-npx hardhat console --network localhost
+npx hardhat console --network localhost --config hardhat.local.config.js
+
+## Como configurar a Metamask na sua rede local
+
+1. **Instale a extensão MetaMask** no seu navegador, caso ainda não tenha feito.
+2. Clique no ícone da MetaMask no canto superior direito do seu navegador para abrir a extensão.
+3. No canto superior direito da MetaMask, clique no menu suspenso que mostra a rede atual (por exemplo, "Main Ethereum Network").
+4. Selecione "Custom RPC" ou "Local Network" (dependendo da sua versão da MetaMask).
+5. Insira os seguintes detalhes:
+   - **Nome da rede:** Hardhat (ou qualquer nome de sua preferência)
+   - **Novo URL RPC:** `http://127.0.0.1:8545` (este é o padrão para o nó Hardhat)
+   - **ID da cadeia:** 31337 (este é o padrão para o nó Hardhat)
+6. Clique em "Salvar".
+
+## Como enviar Tokens para a sua carteira
+
+* 1. Execute o comando 'yarn run node'
+
+```cmd
+➜ dappazon (master) ✗ yarn run node
+yarn run v1.22.19
+$ npx hardhat node  --config hardhat.local.config.js
+Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+
+Accounts
+========
+
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+
+Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
+Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+Account #1: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 (10000 ETH)
+Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+
+Account #2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC (10000 ETH)
+Private Key: 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
+```
+
+* 2. Realize a transferencia de tokens de uma carteira para a sua (0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5)
+
+### 1. Acessando o console do Hardhat:
+
+Em um novo terminal, navegue até o diretório do seu projeto e inicie o console do Hardhat:
+
+```cmd
+➜ npx hardhat console --network hardhat --config hardhat.local.config.js
+```
+
+### 2. Enviando tokens usando o console:
+
+Uma vez dentro do console do Hardhat, você pode usar o seguinte script para enviar tokens da conta `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` para a conta `0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5`:
+
+```javascript
+const { ethers } = require("hardhat");
+
+async function sendTokens() {
+    // Definindo as contas
+    const senderAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+    const recipientAddress = "0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5";
+
+    // Obtendo o signer para a conta do remetente
+    const sender = await ethers.provider.getSigner(senderAddress);
+
+    // Definindo a quantidade a ser enviada (por exemplo, 1 ETH)
+    const amount = ethers.utils.parseEther("1"); // Altere "1" para a quantidade desejada
+
+    // Enviando os tokens
+    const tx = await sender.sendTransaction({
+        to: recipientAddress,
+        value: amount
+    });
+
+    console.log(`Transaction hash: ${tx.hash}`);
+
+    await tx.wait(); // Aguardando a transação ser confirmada
+
+    console.log(`Tokens enviados com sucesso para ${recipientAddress}!`);
+}
+
+sendTokens();
+```
+
+Execute o script acima no console do Hardhat. Ele enviará a quantidade especificada (neste exemplo, 1 ETH) da conta do remetente para a conta do destinatário.
+
+Depois de executar o script, você deve ver a mensagem de confirmação e o hash da transação.
+
+---
+
+## Em caso de problemas
+
+Se você encontrar algum problema enquanto utiliza o Dappazom, siga os passos abaixo para tentar solucioná-lo:
+
+1. Derrubar o meu node: Encerre o node que você está rodando no momento.
+2. Executar "clear activity tab data" na Metamask: Abra a extensão da Metamask, vá até a aba de atividades e clique em "clear activity tab data" ou "limpar dados da aba de atividade" para limpar o histórico.
+
+## Logs de uma transação com sucesso
+
+{
+    "transaction": {
+        "hash": "0x081f2e0eb751215e86d47edcddebe9200db18fdeb7fb982ac994ba75d899fc8f",
+        "type": 2,
+        "accessList": null,
+        "blockHash": null,
+        "blockNumber": null,
+        "transactionIndex": null,
+        "confirmations": 0,
+        "from": "0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5",
+        "gasPrice": {
+            "type": "BigNumber",
+            "hex": "0x5f455e81"
+        },
+        "maxPriorityFeePerGas": {
+            "type": "BigNumber",
+            "hex": "0x59682f00"
+        },
+        "maxFeePerGas": {
+            "type": "BigNumber",
+            "hex": "0x5f455e81"
+        },
+        "gasLimit": {
+            "type": "BigNumber",
+            "hex": "0x04dc49"
+        },
+        "to": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "value": {
+            "type": "BigNumber",
+            "hex": "0x03782dace9d90000"
+        },
+        "nonce": 0,
+        "data": "0xd96a094a0000000000000000000000000000000000000000000000000000000000000004",
+        "r": "0x79d557ec06b2577dd830f3c549fcf218397719143dcc5aad6ee3e10775282871",
+        "s": "0x1f8df32ac0b689f987e5098a4166f3b642ba76d7df0a58b8e5553656057d7a2c",
+        "v": 1,
+        "creates": null,
+        "chainId": 0
+    }
+}
+
+{
+    "result": {
+        "to": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "from": "0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5",
+        "contractAddress": null,
+        "transactionIndex": 0,
+        "gasUsed": {
+            "type": "BigNumber",
+            "hex": "0x04dc49"
+        },
+        "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000400000040000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "blockHash": "0xfaa21319d93a3c63db0858ac7968a8b69cedb853ebf9f8b36026d64e428f438f",
+        "transactionHash": "0x081f2e0eb751215e86d47edcddebe9200db18fdeb7fb982ac994ba75d899fc8f",
+        "logs": [
+            {
+                "transactionIndex": 0,
+                "blockNumber": 20,
+                "transactionHash": "0x081f2e0eb751215e86d47edcddebe9200db18fdeb7fb982ac994ba75d899fc8f",
+                "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+                "topics": [
+                    "0x1cbc5ab135991bd2b6a4b034a04aa2aa086dac1371cb9b16b8b5e2ed6b036bed"
+                ],
+                "data": "0x00000000000000000000000017edfb8a794ec4f13190401ef7af1c17f3cc90c500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000004",
+                "logIndex": 0,
+                "blockHash": "0xfaa21319d93a3c63db0858ac7968a8b69cedb853ebf9f8b36026d64e428f438f"
+            }
+        ],
+        "blockNumber": 20,
+        "confirmations": 1,
+        "cumulativeGasUsed": {
+            "type": "BigNumber",
+            "hex": "0x04dc49"
+        },
+        "effectiveGasPrice": {
+            "type": "BigNumber",
+            "hex": "0x5daf045a"
+        },
+        "status": 1,
+        "type": 2,
+        "byzantium": true,
+        "events": [
+            {
+                "transactionIndex": 0,
+                "blockNumber": 20,
+                "transactionHash": "0x081f2e0eb751215e86d47edcddebe9200db18fdeb7fb982ac994ba75d899fc8f",
+                "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+                "topics": [
+                    "0x1cbc5ab135991bd2b6a4b034a04aa2aa086dac1371cb9b16b8b5e2ed6b036bed"
+                ],
+                "data": "0x00000000000000000000000017edfb8a794ec4f13190401ef7af1c17f3cc90c500000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000004",
+                "logIndex": 0,
+                "blockHash": "0xfaa21319d93a3c63db0858ac7968a8b69cedb853ebf9f8b36026d64e428f438f",
+                "args": [
+                    "0x17eDfB8a794ec4f13190401EF7aF1c17f3cc90c5",
+                    {
+                        "type": "BigNumber",
+                        "hex": "0x01"
+                    },
+                    {
+                        "type": "BigNumber",
+                        "hex": "0x04"
+                    }
+                ],
+                "event": "Buy",
+                "eventSignature": "Buy(address,uint256,uint256)"
+            }
+        ]
+    }
+}
+
+
+--- 
+
+# CI / CD
 
 ## How to configure your deployment secrets
 

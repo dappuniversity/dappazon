@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-//TODO : Implementacao de proxy para nao ficar mudando toda hora o id do contrato
 contract Dappazon {
-    //
     address public owner;
 
     struct Item {
@@ -62,10 +60,6 @@ contract Dappazon {
 
         // Emit event
         emit List(_name, _cost, _stock);
-    }
-
-    function test(uint256 _id) public payable {
-
     }
 
     function buy(uint256 _id) public payable {

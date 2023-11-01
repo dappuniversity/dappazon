@@ -4,7 +4,11 @@ Here's the translated README:
 
 TODO List :
 
-[] - Pegar os produtos de um Banco Mongo
+[] - Configurar o Sanity CMS no projeto
+[] - Configurar as entidades no banco Sanity
+[] - Configurar criar as Querys no banco Sanity
+[] - Criar um diagrama de dados do projeto
+
 [] - Melhorar a arquitetura do FE
 [] - Criar esquema das Lojas
 [] - Criar esquema das Vitrines

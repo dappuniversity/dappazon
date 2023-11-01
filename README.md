@@ -2,6 +2,64 @@ Here's the translated README:
 
 # Dappazon
 
+TODO List :
+
+[] - Pegar os produtos de um Banco Mongo
+[] - Melhorar a arquitetura do FE
+[] - Criar esquema das Lojas
+[] - Criar esquema das Vitrines
+[] - Cadastro de produto
+[] - Cadastro de meio de pagamento (taxa)
+[] - Criacao de token
+[] - Tests pagamento ETH
+[] - Tests pagamento BTC
+[] - Tests pagamento Token
+
+## Mapeamento dos Dados 
+
+
+### Dados On Chain
+
+- Tansações : <Id> - <Produto_Ids> - <Seller_Id> - <Payment_Id> - <Tax_Id> - <Token_Id> - <Comprador_Id>  
+
+- Seller : <Type> - <Id> - <Token_adress //Instancia token ERC-20> -
+
+    - Seller_view :
+
+- Produto : <Type> - <Id> - <Estoque> - <Valor> - <Category> - <Seller_Id>
+
+  - Produto_view : <Produtos> = <Produto_id> - Desc - Banner - List[Img] - 
+
+  '_view' Significa que parte dos dados de produto está em um banco CMS (Gerenciador de conteudo)
+
+    Sanity CMS DB
+
+- Token : <Type> - <Id> - <Qtd> - <Valor_Lastro> - <Seller_Id> 
+
+    Requisito : Herda de ERC-20 / Token_Xperience
+
+    - Token_view :
+
+- Collections : Sanity CMS DB ()
+
+    Coleção de produtos, 
+
+    <Collections> = <Id> 
+
+    Attr : <List[Produto_ids]>
+
+Vitrines : Sanity CMS DB ()
+
+    <Seller_id> - <Category> - <Id> - <Collection_id>
+
+- Cryptocurrency Exchange - Entidade onde o cliente irá trocar nossas moedas por REAL, REAL pelas moedas
+
+* Fluxo 
+
+  ETH
+     XPERIENCE COIN
+        XPERIENCE COIN - Seller Id
+
 
 
 **Dappazon: A Revolução do E-commerce Personalizado**

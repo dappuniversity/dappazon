@@ -64,7 +64,22 @@ Vitrines : Sanity CMS DB ()
      XPERIENCE COIN
         XPERIENCE COIN - Seller Id
 
+---
 
+## Cotizacao
+
+Como funciona o processo de pagamento para o Seller
+
+- 2 semanas - Taxa 2%
+- 24 H - Taxa 5%
+- 2 H - Taxa 7%
+
+---
+
+> Obs : é necessário que o pedido (order) esteja no status FINISHED para iniciar a contagem do SLA para a Cotizacao
+
+
+---
 
 **Dappazon: A Revolução do E-commerce Personalizado**
 

@@ -19,12 +19,20 @@ TODO List :
 [] - Tests pagamento BTC
 [] - Tests pagamento Token
 
+## Sanity
+
+mkdir studio
+cd studio
+sanity init
+
 ## Mapeamento dos Dados 
 
 
 ### Dados On Chain
 
-- Tansações : <Id> - <Produto_Ids> - <Seller_Id> - <Payment_Id> - <Tax_Id> - <Token_Id> - <Comprador_Id>  
+- Tansações : <Id> - <Produto_Ids> - <Seller_Id> - <Payment_Id> - <Tax_Id> - <Token_Id> - <Comprador_Id> - <Taxa_Id>
+
+- Taxas : <Id> - <Payment_Id> - Val - 
 
 - Seller : <Type> - <Id> - <Token_adress //Instancia token ERC-20> -
 
@@ -52,7 +60,7 @@ TODO List :
 
     Attr : <List[Produto_ids]>
 
-Vitrines : Sanity CMS DB ()
+- Vitrines : Sanity CMS DB ()
 
     <Seller_id> - <Category> - <Id> - <Collection_id>
 
@@ -69,6 +77,8 @@ Vitrines : Sanity CMS DB ()
 ## Cotizacao
 
 Como funciona o processo de pagamento para o Seller
+
+Orders Payment type PIX
 
 - 2 semanas - Taxa 2%
 - 24 H - Taxa 5%

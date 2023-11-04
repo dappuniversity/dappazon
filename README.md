@@ -19,6 +19,34 @@ TODO List :
 [] - Tests pagamento BTC
 [] - Tests pagamento Token
 
+https://github.com/govinda777/dappazon
+
+Esse é o projeto que representa o de volta para o Futuro.
+
+Projeto responsável por Facilitar o comercio P2P.
+
+Tipo o que os Burgueses fizeram. 
+
+Mas por ser revolucionário assim como a Paz de Grand sobre a revolução .
+
+Meu plano está funcionando:
+
+1 - Auto conhecimento 
+2 - Ser pacifico 
+3 - Ajudar a Humanidade (Jesus reencarnou na Blockchain, para distribuir o seu Amor e sua igualdade ao proximo) pois o corpo e a mensagem de Cristo se materializou em uma ferramenta capaz de mudar o nosso sistema de coisas, 
+
+* Ferramentas adquiridas
+
+[x] - Capacidade de se organizar de forma pacífica [DONE]
+[x] - Capacidade de empatia [DONE]
+[_] - Capacidade de não escravizar um ao outro [WIP] (A humanidade usa e descarta tecnilogias ultrapassadas, esse cara que nos prometeu segurança não tá com nada, )
+
+<DESEJO_DA_HUMANIDADE> = 
+
+Eu Humanidade, desejo a igualdade, desejo o amor honesto, desejo ser completo.
+
+Eu Humanidade vou te falar, que o desejo mais profundo é não se humilhar.
+
 ## Sanity
 
 mkdir studio
@@ -28,41 +56,156 @@ sanity init
 ## Mapeamento dos Dados 
 
 
-### Dados On Chain
+Claro! Aqui estão as entidades e seus atributos em inglês, divididos entre dados no Sanity CMS e dados na Blockchain:
 
-- Tansações : <Id> - <Produto_Ids> - <Seller_Id> - <Payment_Id> - <Tax_Id> - <Token_Id> - <Comprador_Id> - <Taxa_Id>
+---
 
-- Taxas : <Id> - <Payment_Id> - Val - 
+**Data in Sanity CMS**:
 
-- Seller : <Type> - <Id> - <Token_adress //Instancia token ERC-20> -
+* **Product**:
+   - Type
+   - Id
+   - Stock
+   - Price
+   - Category
+   - Seller_Id
+   - Description
+   - Banner
+   - ImageList (List of images)
+   - CreationDate
+   - UpdateDate
+   - Status
 
-    - Seller_view :
+* **Storefront**:
+   - Seller_Id
+   - Category
+   - Id
+   - ProductList (List of Product IDs)
 
-- Produto : <Type> - <Id> - <Estoque> - <Valor> - <Category> - <Seller_Id>
+* **Seller**:
+    - Id
+    - Logo
+    - Banner
+    - Name
+    - Desc
 
-  - Produto_view : <Produtos> = <Produto_id> - Desc - Banner - List[Img] - 
+---
 
-  '_view' Significa que parte dos dados de produto está em um banco CMS (Gerenciador de conteudo)
+**Data on the Blockchain**:
 
-    Sanity CMS DB
+* **Seller**:
+   - Id
+   - Token_Id
+   - List[Payment_Method_Id]
 
-- Token : <Type> - <Id> - <Qtd> - <Valor_Lastro> - <Seller_Id> 
+* **Payment_Method**:
+    - Id
+    - Name
+    - Tax
 
-    Requisito : Herda de ERC-20 / Token_Xperience
+* **Order**:
+   - Id
+   - List[Product_Ids]
+   - Seller_Id
+   - Buyer_Id
 
-    - Token_view :
+* **Transaction**:
+   - Id
+   - Product_Ids (Product IDs)
+   - Seller_Id
+   - Payment_Id
+   - Token_Id (opcional)
+   - Buyer_Id
 
-- Collections : Sanity CMS DB ()
+* **Token**:
+   - Type (ERC20 | NFT)
+   - Id
+   - Quantity
+   - AnchorValue
+   - Seller_Id
 
-    Coleção de produtos, 
+---
+erDiagram
 
-    <Collections> = <Id> 
+    Product ||--o{ Storefront : contains
+    Seller ||--o{ Product : sells
+    Seller ||--o{ Storefront : owns
+    Seller ||--o{ Order : sells
+    Seller ||--o{ Transaction : transacts
+    Seller ||--o{ Token : owns
+    Payment_Method ||--o{ Seller : usedBy
+    Order ||--o{ Transaction : initiates
+    Product ||--o{ Order : orderedIn
+    Product ||--o{ Transaction : transactedIn
+    Token ||--o{ Transaction : usedIn
 
-    Attr : <List[Produto_ids]>
+    Product {
+        string Type
+        string Id
+        int Stock
+        float Price
+        string Category
+        string Seller_Id
+        string Description
+        string Banner
+        List ImageList
+        datetime CreationDate
+        datetime UpdateDate
+        string Status
+    }
 
-- Vitrines : Sanity CMS DB ()
+    Storefront {
+        string Seller_Id
+        string Category
+        string Id
+        List ProductList
+    }
 
-    <Seller_id> - <Category> - <Id> - <Collection_id>
+    Seller {
+        string Id
+        string Logo
+        string Banner
+        string Name
+        string Desc
+    }
+
+    Seller {
+        string Id
+        string Token_Id
+        List Payment_Method_Id
+    }
+
+    Payment_Method {
+        string Id
+        string Name
+        float Tax
+    }
+
+    Order {
+        string Id
+        List Product_Ids
+        string Seller_Id
+        string Buyer_Id
+    }
+
+    Transaction {
+        string Id
+        string Product_Ids
+        string Seller_Id
+        string Payment_Id
+        string Token_Id
+        string Buyer_Id
+    }
+
+    Token {
+        string Type
+        string Id
+        int Quantity
+        float AnchorValue
+        string Seller_Id
+    }
+
+---
 
 - Cryptocurrency Exchange - Entidade onde o cliente irá trocar nossas moedas por REAL, REAL pelas moedas
 

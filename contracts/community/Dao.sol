@@ -1,3 +1,4 @@
+/*
 DAO é uma sigla em inglês que significa 
 "Decentralized Autonomous Organization" (Organização Autônoma Descentralizada, 
 em português). Uma DAO é uma entidade que é governada por regras codificadas 
@@ -17,3 +18,4 @@ descentralizada e a governança por consenso são desejáveis.
 A premissa é minimizar a necessidade de confiança e intermediários, 
 potencialmente reduzindo custos e aumentando a eficiência e a democracia 
 nas operações da organização.
+*/

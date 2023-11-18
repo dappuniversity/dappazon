@@ -1,3 +1,4 @@
+/*
 # Proposta em uma DAO (Decentralized Autonomous Organization)
 
 ## 1. Criação da Proposta
@@ -30,3 +31,4 @@ Se aprovada, a proposta é executada seguindo as regras da DAO:
 - Realização de ações codificadas na proposta.
 
 A estrutura específica para propostas pode variar de acordo com as regras de governança e a tecnologia utilizada pela DAO.
+*/

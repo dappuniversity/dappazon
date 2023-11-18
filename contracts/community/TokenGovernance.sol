@@ -1,3 +1,4 @@
+/*
 Um token de participação, ou "governance token" em inglês, 
 refere-se a tokens de criptomoeda que dão aos seus detentores o 
 direito de participar no processo de tomada de decisões de uma 
@@ -31,4 +32,4 @@ de contratos inteligentes na blockchain, garantindo transparência e
 execução automática das regras estabelecidas. É uma forma de alinhar 
 os interesses dos usuários com os da plataforma, pois quanto mais uma 
 pessoa investe e participa na plataforma, mais ela tem a ganhar ou perder 
-com as decisões tomadas.
+com as decisões tomadas.*/

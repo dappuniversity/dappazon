@@ -1,0 +1,31 @@
+name: Deploy Smart Contract to Goerli
+
+on:
+  push:
+    branches:
+      - master  # ou o nome da sua branch principal
+
+jobs:
+  deploy-contract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # ou a versão que você está usando
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Compile and Test Contracts
+      run: npm run test
+
+    - name: Deploy Contract to Goerli
+      run: npx hardhat run ./scripts/deploy.js --network goerli --config hardhat.goerli.config.js
+      env:
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
